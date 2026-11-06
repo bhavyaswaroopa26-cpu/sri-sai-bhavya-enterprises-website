@@ -63,6 +63,7 @@ enquiryForm?.addEventListener("submit", (event) => {
   const name = String(formData.get("name")).trim();
   const phone = String(formData.get("phone")).trim();
   const interest = String(formData.get("interest"));
+  const whatsappNumber = String(formData.get("whatsappNumber"));
   const message = String(formData.get("message") || "").trim();
   const enquiry = [
     "Hello Sri Sai Bhavya Enterprises, I am interested in your tea and coffee products. Please share your wholesale details.",
@@ -72,7 +73,7 @@ enquiryForm?.addEventListener("submit", (event) => {
     `Interested in: ${interest}`,
     message ? `Message: ${message}` : ""
   ].filter(Boolean).join("\n");
-  const whatsappUrl = `https://wa.me/919014838555?text=${encodeURIComponent(enquiry)}`;
+  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(enquiry)}`;
   const whatsappWindow = window.open(whatsappUrl, "_blank");
   if (!whatsappWindow) {
     formStatus.textContent = "Your browser blocked the new tab. Please use the WhatsApp button or allow pop-ups and try again.";
